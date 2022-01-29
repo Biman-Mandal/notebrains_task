@@ -1,0 +1,49 @@
+@extends('master')
+@section('content')
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="{{ url('img/php-tag-logo.png') }}" width="30" height="30" alt="">
+            example-app</a>
+        <a class="navbar-brand" href="{{ url('user') }}">
+            <button type="button" class="btn btn-dark">User</button>
+        </a>
+    </nav>
+    <div class="d-flex align-items-center justify-content-center flex-column mt-4">
+        @if (session('success'))
+            <div class="alert alert-success w-50">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger w-50 default_error_msg">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <div class="d-flex justify-content-center navbar navbar-light bg-dark w-50 default_inner_nav">
+            <!-- signup -->
+            <h6 class="navbar-brand text-light font-weight-bold">Administration Sign-In</h6>
+        </div>
+        <div class="container mt-4 w-50">
+            <form method="POST" action = " {{ url('admin/login') }} ">
+                @csrf
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="username" autocomplete="off" class="form-control-plaintext" id="staticEmail" placeholder="Enter Username">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" name="password" autocomplete="off" class="form-control-plaintext" id="inputPassword" placeholder="Enter Password">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-dark">Submit</button>
+            </form>
+        </div>
+    </div>
+@endsection

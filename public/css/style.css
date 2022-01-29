@@ -13,7 +13,7 @@
 }
 
 .default-text-nav{
-	font-size: 18px; 
+	font-size: 18px;
 	letter-spacing: .5px;
 	color: rgba(0,0,0,.7);
 }
@@ -38,4 +38,15 @@
 	background: black;
 	left: 0;
 	bottom: 2px;
+}
+.form-control:focus {
+    border-color: #0066FF !important;
+    box-shadow: inset 0 1px 1px rgba(0,102,255,0.5) !important;
+}
+.default_error_msg ul li{
+    list-style-type: none;
+}
+.index_data_action{
+    display: flex !important;
+    flex-direction: row !important;
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ApplicationMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -42,6 +43,12 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'userProduct' => [
+            \App\Http\Middleware\ApplicationMiddleware::class,
+        ],
+        'adminLoginMiddleware' => [
+            \App\Http\Middleware\AdminLogin::class,
+        ]
     ];
 
     /**

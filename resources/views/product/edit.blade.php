@@ -17,9 +17,9 @@
                 </div>
             @endif
             <nav class="navbar navbar-light bg-light border-bottom mb-1">
-                <h5 class="font-weight-bold mt-2 default-text-nav">Insert Product</h5>
+                <h5 class="font-weight-bold mt-2 default-text-nav">Update Product</h5>
                 <h5 class="font-weight-bold mt-2 default-text-nav"></h5>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ url('products') }}">
                     <button  data-toggle="tooltip" data-placement="bottom" title="Back" class="btn btn-outline-dark btn-sm waves-effect waves-light" data-target="#addModal">
                         <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
                     </button>
@@ -28,44 +28,29 @@
             <div class="container mt-4">
                 <div class="card">
                     <article class="card-body">
-                        <form method="post" action="{{ url('products') }} " enctype="multipart/form-data">
+                        <form method="post" action="{{ url('products/'.$data['id']) }}">
                             @csrf
-                            <input type="hidden" name="uid" value="{{session('profile.id')}}">
+                            @method('PUT')
                             <div class="form-group">
                                 <label>Product Name</label>
-                                <input type="text" name="product_name" class="form-control @error('product_name') is-invalid @enderror" placeholder="Enter the product name">
-                                @error('product_name') <div class="alert alert-danger">{{ $message  }}</div> @enderror
+                                <input type="text" name="product_name" value="{{ $data['product_name'] }}" class="form-control" placeholder="Enter the product name">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Product Type</label>
-                                    <select class="form-control" name="product_type">
-                                        <option value="Clothing">Clothing</option>
-                                        <option value="Home">Home</option>
-                                        <option value="Electronics" selected>Electronics</option>
-                                        <option value="Beauty">Beauty</option>
-                                        <option value="Travel">Travel</option>
-                                        <option value="Toys">Toys</option>
-                                    </select>
+                                    <input type="text" name="product_type" value="{{ $data['product_type'] }}" class="form-control" placeholder="Enter the product type">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Product Price</label>
-                                    <input type="text" name="product_price" class="form-control @error('product_price') is-invalid @enderror" placeholder="Enter the price">
-                                    @error('product_price') <div class="alert alert-danger">{{ $message  }}</div> @enderror
+                                    <input type="text" name="product_price" value="{{ $data['product_price'] }}" class="form-control" placeholder="Enter the price">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Product Image</label>
-                                <input name="product_image" class="form-control @error('product_image') is-invalid @enderror" type="file">
-                                @error('product_image') <div class="alert alert-danger">{{ $message  }}</div> @enderror
-                            </div>
-                            <div class="form-group">
                                 <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                <textarea name="product_bio" class="form-control @error('product_bio') is-invalid @enderror" rows="3" placeholder="Product details"></textarea>
-                                @error('product_bio') <div class="alert alert-danger">{{ $message  }}</div> @enderror
+                                <input type="text" name="product_bio" value="{{ $data['product_bio'] }}" class="form-control" placeholder="Enter the price">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn btn-primary">Insert</button>
+                                <button type="submit" class="btn btn btn-primary">Update</button>
                             </div>
                         </form>
                     </article>
