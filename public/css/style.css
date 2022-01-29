@@ -1,0 +1,41 @@
+.default_inner_nav{
+	height: 55px;
+	border: 20px solid skyblue;
+	border-top: hidden;
+	border-bottom: hidden;
+}
+.joinNow{
+	border: hidden !important;
+}
+.join_btn_login{
+	padding: 5px;
+	font-weight: bold !important;
+}
+
+.default-text-nav{
+	font-size: 18px; 
+	letter-spacing: .5px;
+	color: rgba(0,0,0,.7);
+}
+.products_nav{
+	position: relative;
+	letter-spacing: 1px;
+}
+.products_nav::after{
+	position: absolute;
+	content: "";
+	width: 35px;
+	height: 1px;
+	background: black;
+	left: 0;
+	bottom: 0;
+}
+.products_nav::before{
+	position: absolute;
+	content: "";
+	width: 50px;
+	height: 1px;
+	background: black;
+	left: 0;
+	bottom: 2px;
+}
