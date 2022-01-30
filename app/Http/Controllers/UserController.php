@@ -18,7 +18,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|Response|View
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -28,7 +28,7 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|Factory|Response|View
+     * @return Application|Factory|View
      */
     public function create()
     {
