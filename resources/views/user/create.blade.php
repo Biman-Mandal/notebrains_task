@@ -2,7 +2,7 @@
 @section('content')
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
-        <img src="" width="30" height="30" alt="">
+        <img src="{{ url('img/php-tag-logo.png') }}" width="30" height="30" alt="">
         example-app</a>
     <a class="navbar-brand" href="{{ url('administration') }}">
         <button type="button" class="btn btn-dark">Admin</button>
